@@ -11,6 +11,18 @@ public class Stock {
         this.sharePrice = sharePrice;
     }
 
+    public void setShareName(String shareName) {
+        this.shareName = shareName;
+    }
+
+    public void setNoOfShare(int noOfShare) {
+        this.noOfShare = noOfShare;
+    }
+
+    public void setSharePrice(float sharePrice) {
+        this.sharePrice = sharePrice;
+    }
+
     public String getShareName() {
         return shareName;
     }

@@ -11,14 +11,18 @@ public class Main {
         value.stockValue();
         int i = 0;
         while (i < 1) {
-            System.out.println("Press 1 to create another account/Press 0 to exit");
+            System.out.println("Press 1 to create another Stock Account/Press 2 to Add Shares in an existing Account/Press 0 to exit");
             Scanner in = new Scanner(System.in);
-            if (in.nextInt() == 1) {
-                value.updateA();
-            } else if (in.nextInt() == 0) {
-                System.out.println("Thank You");
-                i = 1;
+            switch (in.nextInt()) {
+                case 0 -> {
+                    System.out.println("Thank You");
+                    i = 1;
+                }
+                case 1 -> value.updateA();
+                case 2 -> value.updateC();
+                default -> System.out.println("Invalid Input");
             }
         }
+        System.out.println();
     }
 }

@@ -74,4 +74,45 @@ public class StockPortfolio {
             }
         }
     }
+
+    public void updateC() {
+        int j = 0;
+        while (j < 3) {
+            System.out.println("Enter the name of Account to be updated");
+            String accountName = in.next();
+            if (map.containsKey(accountName)) {
+                for (Stock info : map.get(accountName)) {
+                    int i = 0;
+                    while (i < 3) {
+                        System.out.println("Enter the name of share to be updated");
+                        String name = in.next();
+                        if (Objects.equals(info.getShareName(), name)) {
+                            System.out.println("Stock Name:" + info.getShareName() + "  Number of Shares:" + info.getNoOfShare() + "  Share Price:" + info.getSharePrice() + "  Stock Value:" + info.getNoOfShare() * info.getSharePrice());
+                            System.out.println("Press 1 to add or remove Number of Shares/Press 2 to update Share Price");
+                            int choice = in.nextInt();
+                            if (choice == 1) {
+                                System.out.println("Enter the updated quantity of Shares");
+                                int shares = in.nextInt();
+                                info.setNoOfShare(shares);
+                                i = 3;
+                            } else if (choice == 2) {
+                                System.out.println("Enter the updated price of Each Share");
+                                int sharePrice = in.nextInt();
+                                info.setSharePrice(sharePrice);
+                                i=3;
+                            }
+                        } else if (!info.getShareName().equals(name)) {
+                            System.out.println("No such share in the account, please enter again");
+                            i++;
+                        }
+                    }
+                }
+                display();
+                j = 3;
+            } else {
+                System.out.println("No such account, please re-enter the Account Name");
+                j++;
+            }
+        }
+    }
 }
