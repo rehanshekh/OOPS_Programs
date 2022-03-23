@@ -8,7 +8,6 @@ public class StockPortfolio {
     Scanner in = new Scanner(System.in);
 
     public void stockValue() {
-
         System.out.println("How many accounts do you want to create");
         int accounts = in.nextInt();
         for (int a = 1; a <= accounts; a++) {
@@ -99,11 +98,75 @@ public class StockPortfolio {
                                 System.out.println("Enter the updated price of Each Share");
                                 int sharePrice = in.nextInt();
                                 info.setSharePrice(sharePrice);
-                                i=3;
+                                i = 3;
                             }
                         } else if (!info.getShareName().equals(name)) {
                             System.out.println("No such share in the account, please enter again");
                             i++;
+                        }
+                    }
+                }
+                display();
+                j = 3;
+            } else {
+                System.out.println("No such account, please re-enter the Account Name");
+                j++;
+            }
+        }
+    }
+
+    public void delete() {
+        int j = 0;
+        while (j < 3) {
+            System.out.println("Enter the Account Name from which deletion is to be done");
+            String accountName = in.next();
+            if (map.containsKey(accountName)) {
+                for (Stock info : map.get(accountName)) {
+                    int i = 0;
+                    while (i < 3) {
+                        System.out.println("Enter the name of the share to be deleted");
+                        String name = in.next();
+                        if (Objects.equals(info.getShareName(), name)) {
+                            map.get(accountName).remove(info);
+                            i = 3;
+                        } else if (!info.getShareName().equals(name)) {
+                            System.out.println("No such share in the account, please enter again");
+                            i++;
+                        }
+                    }
+                }
+                display();
+                j = 3;
+            } else {
+                System.out.println("No such account, please re-enter the Account Name");
+                j++;
+            }
+        }
+    }
+
+    public void add() {
+        int j = 0;
+        while (j < 3) {
+            System.out.println("Enter the Account Name to which stock is to be added");
+            String accountName = in.next();
+            if (map.containsKey(accountName)) {
+                    int i = 0;
+                    while (i < 3) {
+                        for (Stock info : map.get(accountName)) {
+                        System.out.println("Enter the name of the Share to be added to Account");
+                        String name = in.next();
+                        if (Objects.equals(info.getShareName(), name)) {
+                            System.out.println("Share already exists in Account, please use option 2");
+                            i = 3;
+                        } else if (!info.getShareName().equals(name)) {
+                            System.out.println("Enter the no. of shares");
+                            int noOfShare = in.nextInt();
+                            System.out.println("Enter share price of each stock");
+                            float sharePrice = in.nextFloat();
+                            Stock stock = new Stock(name, noOfShare, sharePrice);
+                            map.get(accountName).add(stock);
+                            i = 3;
+                            break;
                         }
                     }
                 }
