@@ -4,8 +4,12 @@ import java.util.*;
 
 public class StockPortfolio {
     public static float total = 0;
-    Map<String, List<Stock>> map = new LinkedHashMap<>();
+    public Map<String, List<Stock>> map = new LinkedHashMap<>();
     Scanner in = new Scanner(System.in);
+
+    public Map<String, List<Stock>> getMap() {
+        return map;
+    }
 
     public void stockValue() {
         System.out.println("How many accounts do you want to create");
