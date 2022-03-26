@@ -22,18 +22,18 @@ public class Player {
         for (int i = 0; i < cards.length - 1; i++) {
             for (int j = i + 1; j < cards.length; j++) {
                 int firstNum = switch (cards[i].split("\\(")[0]) {
-                    case "k" -> 11;
-                    case "n" -> 12;
-                    case "g" -> 13;
-                    case "e" -> 14;
+                    case "Jack" -> 11;
+                    case "Queen" -> 12;
+                    case "King" -> 13;
+                    case "Ace" -> 14;
                     default -> Integer.parseInt(
                             cards[i].split("\\(")[0]);
                 };
                 int secondNum = switch (cards[j].split("\\(")[0]) {
-                    case "k" -> 11;
-                    case "n" -> 12;
-                    case "g" -> 13;
-                    case "e" -> 14;
+                    case "Jack" -> 11;
+                    case "Queen" -> 12;
+                    case "King" -> 13;
+                    case "Ace" -> 14;
                     default -> Integer.parseInt(
                             cards[j].split("\\(")[0]);
                 };

@@ -46,9 +46,9 @@ public class Game {
     }
 
     public void print() {
-        for (int i = 0; i < player.length; i++) {
-            player[i].sort();
-            System.out.println(player[i].getName()+" "+ Arrays.toString(player[i].getCards()));
+        for (Player value : player) {
+            value.sort();
+            System.out.println(value.getName() + " " + Arrays.toString(value.getCards()));
         }
     }
 }
